@@ -4,6 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 //Modules
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
+import { FlashMessagesModule } from 'flash-messages-angular';
+import { HttpClientModule } from '@angular/common/http';
 
 //Components
 import { AppComponent } from './app.component';
@@ -16,7 +18,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 
 // Services
 import { ValidateService } from './services/validate.service';
-import { FlashMessagesModule } from 'flash-messages-angular';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -33,8 +35,9 @@ import { FlashMessagesModule } from 'flash-messages-angular';
     AppRoutingModule,
     FormsModule,
     FlashMessagesModule.forRoot(),
+    HttpClientModule,
   ],
-  providers: [ValidateService],
+  providers: [ValidateService, AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
