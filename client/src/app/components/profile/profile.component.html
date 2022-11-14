@@ -1,1 +1,18 @@
-<p>profile works!</p>
+<div *ngIf="user">
+  <!-- <h2 class="page-header"></h2> -->
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">{{ user.name }}</h4>
+      <h6 class="card-subtitle mb-2 text-muted">@{{ user.username }}</h6>
+      <p class="card-text">
+        {{ user.name }} is an Indian actor, film producer, writer and former
+        model working in Hindi films. He has won a National Film Award and
+        received five Filmfare nominations. After modelling for advertisements
+        and companies, Abraham debuted in films with Jism and had his
+        breakthrough performance with Dhoom.
+      </p>
+      <a href="#" class="card-link">{{ user.email }}</a>
+      <a href="#" class="card-link">{{ user._id }}</a>
+    </div>
+  </div>
+</div>

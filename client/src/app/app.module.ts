@@ -19,6 +19,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 // Services
 import { ValidateService } from './services/validate.service';
 import { AuthService } from './services/auth.service';
+import { JwtHelperService, JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [
@@ -36,8 +37,14 @@ import { AuthService } from './services/auth.service';
     FormsModule,
     FlashMessagesModule.forRoot(),
     HttpClientModule,
+    JwtModule,
   ],
-  providers: [ValidateService, AuthService],
+  providers: [
+    ValidateService,
+    AuthService,
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+    JwtHelperService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
